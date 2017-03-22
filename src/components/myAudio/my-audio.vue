@@ -8,19 +8,47 @@
             <span class="song-name">111</span>
             <span class="sopng-author">2222</span>
           </div>
-          <div class="iconfont icon-bofang"></div>
-          <div class="iconfont icon-zanting"></div>
+          <div class="iconfont icon-yinleliebiaoxian-copy"></div>
+          <div @click="playMusic" class="iconfont icon-play"></div>
+          <div class="iconfont icon-nextvideo-copy"></div>
         </div>
         <div class="audio-process"></div>
     </div>
 </template>
+<script>
+
+    export default{
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+            playMusic(event){
+                var audio = document.getElementById('myAudio1')
+                if(audio.paused){
+                    audio.play()
+                    event.target.classList.remove('icon-pause')
+                    event.target.classList.add('icon-play')
+                }else{
+                    audio.pause()
+                    event.target.classList.remove('icon-play')
+                    event.target.classList.add('icon-pause')
+                }
+            }
+        },
+        components:{
+
+        }
+    }
+</script>
 <style lang="less">
   .my-audio{
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 46px;
-    background: red;
+    background: #ee7272;
     .audio-info{
       display: flex;
       flex-flow: row nowrap;
@@ -31,6 +59,7 @@
       div{
         flex-basis: auto;
         &.song-avar{
+          flex-grow: 0;
           width: 44px;
           height: 44px;
           border-radius: 50%;
@@ -44,30 +73,25 @@
           span{
             display: block;
             &:first-child{
-              font-size: 14px;
+              font-size: 16px;
               font-weight: bold;
+              color: #fff;
             }
             &:last-child{
               font-size: 12px;
+              color: rgba(255,255,255,6);
             }
           }
+        }
+        &.iconfont{
+            text-align: center;
+            width: 50px;
+            flex-grow: 0;
+            color: #fff;
+            font-size: 28px;
         }
       }
     }
   }
 </style>
-<script>
 
-    export default{
-        data(){
-            return{
-
-            }
-        },
-        methods:{
-        },
-        components:{
-
-        }
-    }
-</script>
