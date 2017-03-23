@@ -8,7 +8,6 @@
     .home{
         margin-top: 45px;
         height:100%;
-        overflow-x: hidden;
     }
 </style>
 <script>
@@ -17,7 +16,7 @@
     export default{
         data(){
             return{
-               
+
             }
         },
         components:{

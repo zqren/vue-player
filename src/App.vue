@@ -9,20 +9,20 @@
 </template>
 
 <script>
-import headerComp from './components/header-comp'
-import homeComp from './components/home-comp'
-export default {
-  name: 'app',
-  data(){
-    return{
-      value:50
+  import headerComp from './components/header-comp'
+  import homeComp from './components/home-comp'
+  export default {
+    name: 'app',
+    data(){
+      return{
+        value:50
+      }
+    },
+    components:{
+      headerComp,
+      homeComp
     }
-  },
-  components:{
-    headerComp,
-    homeComp
   }
-}
 </script>
 
 <style lang="less">
