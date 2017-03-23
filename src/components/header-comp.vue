@@ -1,12 +1,12 @@
 <template>
     <header class="header">
         <div class="personal iconfont icon-personal"></div>
-        <div class="home iconfont icon-home"></div>
-        <div class="music iconfont icon-music"></div>
-        <div class="search iconfont icon-search"></div>
+        <router-link to="/" class="home iconfont icon-home" tag="div"></router-link>
+        <router-link to="/playerList" class="music iconfont icon-music" tag="div"></router-link>
+        <router-link to="/search" class="search iconfont icon-search" tag="div"></router-link>
     </header>
 </template>
-<style lang="less">
+<style lang="less" scoped>
     .header{
       position: fixed;
       top: 0px;
@@ -14,8 +14,9 @@
       height: 45px;
       background: #ee7272;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
+      z-index: 100;
       div{
         flex-grow: 1;
         color: #fff;
@@ -24,7 +25,11 @@
           margin-left: 10px;
           font-size: 28px;
         }
-        &.home,
+        &.home{
+           text-align: center;
+           flex-basis: 20%;
+           font-size: 34px;
+        }
         &.music{
           text-align: center;
           flex-basis: 20%;
@@ -36,9 +41,7 @@
           margin-right: 10px;
           font-size:28px;
         }
-
       }
-
     }
 </style>
 <script>

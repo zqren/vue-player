@@ -8,9 +8,9 @@
             <span class="song-name">111</span>
             <span class="sopng-author">2222</span>
           </div>
-          <div class="iconfont icon-yinleliebiaoxian-copy"></div>
+          <div class="iconfont icon-music-list"></div>
           <div @click="playMusic" class="iconfont icon-play"></div>
-          <div class="iconfont icon-nextvideo-copy"></div>
+          <div class="iconfont icon-nextvideo"></div>
         </div>
         <div class="audio-process"></div>
     </div>

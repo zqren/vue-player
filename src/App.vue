@@ -10,6 +10,7 @@
 
 <script>
 import headerComp from './components/header-comp'
+import homeComp from './components/home-comp'
 export default {
   name: 'app',
   data(){
@@ -18,7 +19,8 @@ export default {
     }
   },
   components:{
-    headerComp
+    headerComp,
+    homeComp
   }
 }
 </script>

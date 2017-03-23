@@ -1,16 +1,8 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '../components/Hello'
-import myAudio from '@/components/myAudio/my-audio'
+import VueRouter from 'vue-router'
+import routes from './routes'
+Vue.use(VueRouter)
 
-Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'myAudio',
-      component: myAudio
-    }
-  ]
+export default new VueRouter({
+  routes
 })
