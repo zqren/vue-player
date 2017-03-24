@@ -105,21 +105,18 @@
                 speed:'all 0s',
                 currentIndex:1,
                 autoPlayTimer:'',
+                time:3000,
                 drag:{
                     startX:0,
                     deltaX:0,
                     minDelta:50,
                     _scrollWidth:0,
-                    _length:0,
-                    _num:0,
-                    _moveDis:0,
-                    _newDis:0,
-                    status:true
+                    _moveDis:0
                 }
             }
         },
         created(){
-           this.autoPlayTimer = setInterval(this.autoPlay,3000)
+          this.autoPlay()
         },
         methods:{
             tStart(event){
@@ -127,7 +124,7 @@
                 this.drag.startX = e.touches[0].pageX
                 this.drag._scrollWidth = e.target.scrollWidth
                 this.speed = 'all 0s'
-                this.drag.status = false
+                clearInterval(this.autoPlayTimer)
             },
             tMove(event){
                 let e = event || window.event
@@ -168,24 +165,25 @@
                       this.currentIndex -= 1
                    }
                 }
+                this.autoPlay()
             },
             turnNext(){
-                this.speed = "all .5s ease-in-out"
-                if(this.drag._moveDis == -(this.imgs.length-1)*100){
-                    this.dis = -this.imgs.length*100
-                    this.drag._moveDis = 0
-                    this.currentIndex = 1
-                }else{
-                   this.drag._moveDis += -100
-                   this.dis = this.drag._moveDis
-                   this.currentIndex += 1
-                }
+              if(this.dis == -(this.imgs.length) * 100) {
+                  this.dis = 0
+                  this.drag._moveDis = 0
+                  this.currentIndex = 1
+                  this.speed = 'all 0s'
+                  //clearInterval(this.autoPlayTimer)
+                  //this.autoPlay()
+              } else {
+                  this.drag._moveDis -= 100
+                  this.dis -= 100;
+                  this.currentIndex = this.drag._moveDis == -600?1:this.currentIndex+1
+                  this.speed = 'all .5s ease-in-out'
+              }
             },
-
             autoPlay(){
-                if(this.drag.status){
-                   this.turnNext()
-                }
+                this.autoPlayTimer = setInterval(this.turnNext,this.time)
             }
         },
         components:{

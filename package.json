@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "less": "^2.7.2",
+    "body-parser": "^1.17.1",
+    "neteaseMusicApi": "^0.1.6",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.2.1"
@@ -44,6 +45,7 @@
     "sass": "^0.5.0",
     "sass-loader": "^6.0.3",
     "semver": "^5.3.0",
+    "style-loader": "^0.16.0",
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
     "vue-style-loader": "^2.0.0",
