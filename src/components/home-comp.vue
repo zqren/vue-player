@@ -8,7 +8,9 @@
 <style rel="stylesheet/less" lang="less" scoped>
     .home{
         margin-top: 45px;
-        height:100%;
+        height:auto;
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
 </style>
 <script>

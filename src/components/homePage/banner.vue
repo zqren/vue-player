@@ -39,8 +39,6 @@
         position: relative;
         width: 100%;
         min-height: 178px;
-        overflow-x: hidden;
-        overflow-y: auto;
         ul.swiper-container{
             position: relative;
             list-style: none;
