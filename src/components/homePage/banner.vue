@@ -38,7 +38,7 @@
     .home-banner{
         position: relative;
         width: 100%;
-        min-height: 178px;
+        min-height: 8.9rem;
         ul.swiper-container{
             position: relative;
             list-style: none;
@@ -61,17 +61,17 @@
             bottom:0;
             margin: 10px auto;
             width: 50%;
-            height: 20px;
+            height: 1rem;
             display: flex;
             flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
             span{
-                width: 8px;
-                height: 8px;
+                width: 0.4rem;
+                height: 0.4rem;
                 border-radius: 50%;
                 background: rgba(255,255,255,.4);
-                margin:0px 5px;
+                margin:0px 0.25rem;
                 &.active{
                     background: rgba(238, 114, 114, 1);
                 }

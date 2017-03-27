@@ -11,7 +11,8 @@
       position: fixed;
       top: 0px;
       width: 100%;
-      height: 45px;
+      //height: 2.25rem;
+      height: 6.75%;
       background: #ee7272;
       display: flex;
       justify-content: space-around;
@@ -22,24 +23,20 @@
         color: #fff;
         &.personal{
           flex-basis: 40%;
-          margin-left: 10px;
-          font-size: 28px;
+          margin-left: 1rem;
+          font-size: 1.4rem;
         }
-        &.home{
+        &.home,
+        &.music{
            text-align: center;
            flex-basis: 20%;
-           font-size: 34px;
-        }
-        &.music{
-          text-align: center;
-          flex-basis: 20%;
-          font-size: 34px;
+           font-size: 1.7rem;
         }
         &.search{
           flex-basis: 20%;
           text-align: right;
-          margin-right: 10px;
-          font-size:28px;
+          margin-right: 0.5rem;
+          font-size:1.4rem;
         }
       }
     }

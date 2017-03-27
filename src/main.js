@@ -11,11 +11,25 @@ Vue.prototype.$http = axios
 //本地服务器端口
 import hostSetting from  '../server/hostSetting'
 
-require('!style-loader!css-loader!less-loader!./assets/css/m-reset.less')
-require('!style-loader!css-loader!less-loader!./assets/css/globe.less')
-require('!style-loader!css-loader!less-loader!./assets/css/icon.less')
+require('./assets/css/m-reset.less')
+require('./assets/css/globe.less')
+require('./assets/css/icon.less')
 
 window.HOST = hostSetting.protocol+hostSetting.host+':'+hostSetting.port
+
+Vue.directive('lazy-img',{
+  bind(el,binding){
+    el.style.height = '100px'
+    el.style.background = '#dcdcdc'
+    var img = new Image()
+    img.src = binding.value
+    console.log(binding.value)
+    img.onload = (() =>{
+      el.style.height = 'auto'
+      el.src = binding.value
+    })
+  }
+})
 
 new Vue({
   el: '#app',
