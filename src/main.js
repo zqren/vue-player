@@ -9,7 +9,7 @@ import axios from 'axios'
 Vue.prototype.$http = axios
 
 //本地服务器端口
-import hostSetting from  '../server/hostSetting'
+var hostSetting = require('../server/hostSetting')
 
 require('./assets/css/m-reset.less')
 require('./assets/css/globe.less')
@@ -23,7 +23,6 @@ Vue.directive('lazy-img',{
     el.style.background = '#dcdcdc'
     var img = new Image()
     img.src = binding.value
-    console.log(binding.value)
     img.onload = (() =>{
       el.style.height = 'auto'
       el.src = binding.value
