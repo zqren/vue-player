@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
+
+import Toast from './toast'
+Vue.use(Toast)
 
 /*把axios设为全局变量*/
 import axios from 'axios'
@@ -30,9 +34,13 @@ Vue.directive('lazy-img',{
   }
 })
 
+Vue.config.silent = false
+Vue.config.devtools = true
+
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

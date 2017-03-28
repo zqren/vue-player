@@ -13,7 +13,7 @@
                         <span class="iconfont icon-tools-erji-copy"></span>
                         <span>{{list.playCount | getIntNum}}</span>
                     </div>
-                    <img v-lazy-img="list.coverImgUrl || list.blurPicUrl">
+                    <img :src="list.coverImgUrl || list.blurPicUrl">
                 </div>
                 <div class="name" :class="{'one-line':!clamp,'two-line':clamp}">{{list.name}}</div>
                 <div class="author" v-if="list.artist">{{list.artist.name}}</div>
@@ -87,7 +87,7 @@
                         width: auto;
                         height: auto;
                         right:0.25rem;
-                        top:-0.5rem;
+                        top:0rem;
                         z-index: 10;
                         span{
                             padding: 0;

@@ -19,7 +19,7 @@
     .home{
         position: absolute;
         top: 2.25rem;
-        padding-bottom: 2.25rem;
+        padding-bottom: 2.25rem+2.3rem;
         box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: scroll;
