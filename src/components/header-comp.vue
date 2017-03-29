@@ -11,8 +11,8 @@
       position: fixed;
       top: 0px;
       width: 100%;
-      //height: 2.25rem;
-      height: 6.75%;
+      height: 2.25rem;
+      //height: 6.75%;
       background: #ee7272;
       display: flex;
       justify-content: space-around;

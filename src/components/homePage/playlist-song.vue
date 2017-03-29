@@ -1,7 +1,7 @@
 <template>
     <div class="hot-song">
         <!--歌单标签-->
-        <div class="hot-playlist-label" :class="{topBorder:isBorder}">
+        <div class="hot-playlist-label" :class="{topBorder:isBorder,fixed:isFixed}">
             <span class="playlist">{{label}}</span>
             <span class="arrow"></span>
         </div>
@@ -36,6 +36,13 @@
             flex-flow: row nowrap;
             justify-content: flex-start;
             align-items: center;
+            &.fixed{
+                width: 100%;
+                background: red;
+                position: fixed;
+                top: 2.25rem;
+                z-index: 10000;
+            }
             &.topBorder{
                 border-top: 1px solid gainsboro;
             }
@@ -117,6 +124,11 @@
                     margin-left: 0.25rem;
                     font-size: 0.6rem;
                     color: #999;
+                    overflow : hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
                 }
             }
         }
@@ -124,6 +136,11 @@
 </style>
 <script>
     export default{
+        data(){
+            return{
+
+            }
+        },
         props:{
             label:{
                 type:String,
@@ -141,7 +158,11 @@
             },
             clamp:{
                type:Boolean,
-                default:false
+               default:false
+            },
+            isFixed:{
+               type:Boolean,
+               default:false
             }
         },
         filters:{

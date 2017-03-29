@@ -6,11 +6,13 @@
                       :isBorder="false"
                       :playlists="hotPlaylists"
                       :clamp="true"
+                      :isFixed="scrollT1"
        ></playlist-song>
        <playlist-song ref="newAlbum" label="新碟上架"
                       :isBorder="true"
                       :playlists="newAlbums"
                       :clamp="false"
+                      :isFixed="scrollT2"
        >
        </playlist-song>
    </div>
@@ -34,7 +36,9 @@
         data(){
             return{
                 hotPlaylists:[],
-                newAlbums:[]
+                newAlbums:[],
+                scrollT1:false,
+                scrollT2:false
             }
         },
         created(){
@@ -63,6 +67,9 @@
                 if(event.target.scrollTop >= 100){
                     this.getNewAlbum()
                 }
+                this.scrollT1 = event.target.scrollTop>=40 && event.target.scrollTop<80?true:false
+                this.scrollT2 = event.target.scrollTop>=80?true:false
+
             }
         },
         components:{
