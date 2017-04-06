@@ -1,6 +1,7 @@
 <template>
    <div class="search">
-       这是搜索页面
+   		<search-header></search-header>
+   		<search-list></search-list>
    </div>
 </template>
 <style rel="stylesheet/less" lang="less" scoped>
@@ -15,7 +16,8 @@
     }
 </style>
 <script>
-    
+    import searchHeader from 'search-header'
+    import searchList from 'saerch-list'
     export default{
         data(){
             return{
