@@ -1,7 +1,8 @@
 <template>
    <div class="search">
    		<search-header></search-header>
-   		<search-list></search-list>
+   		<search-history :historyShow="historyShow"></search-history>
+   		<search-list :listShow="!historyShow"></search-list>
    </div>
 </template>
 <style rel="stylesheet/less" lang="less" scoped>
@@ -17,14 +18,16 @@
 <script>
     import searchHeader from './searchPage/search-header'
     import searchList from './searchPage/search-list'
+    import searchHistoty from './searchPage/search-history'
     export default{
         data(){
             return{
-               
+               historyShow:true
             }
         },
         components:{
             searchHeader,
+            searchHistoty,
             searchList
         }
     }

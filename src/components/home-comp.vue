@@ -19,6 +19,7 @@
 </template>
 <style rel="stylesheet/less" lang="less" scoped>
     .home{
+    	width: 100%;
         position: absolute;
         top: 2.25rem;
         padding-bottom: 2.25rem+2.3rem;

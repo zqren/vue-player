@@ -11,11 +11,12 @@
     	background: rgba(238,114,114,1);
     	display: flex;
     	justify-content: space-around;
-    	align-content: center;
+    	align-items: center;
     	.back-home{
     		flex-basis: 2.5rem;
     		color: #fff;
-    		font-size: 2rem;
+    		font-size: 1.4rem;
+    		margin-left: 10px;
     	}
     	input{
     		flex-basis: 100%;

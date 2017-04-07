@@ -1,21 +1,29 @@
 <template>
-	<div v-show="listShow" class="search-list">
-		11111
+	<div v-show="historyShow" class="search-history">
+		22222
 	</div>
 </template>
 <style lang="less" scoped>
-	.search-list{
+	.search-history{
 		width: 100%;
 	}
 </style>
 <script>
 	export default{
-		name:'searchList',
+		name:'searchHistory',
+		data(){
+			return{
+				
+			}
+		},
 		props:{
-			listShow:{
+			historyShow:{
 				type:Boolean,
 				default:false
 			}
+		},
+		methods:{
+			
 		}
 	}
 </script>
