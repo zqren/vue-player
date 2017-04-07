@@ -8,7 +8,6 @@
     .search{
         position: fixed;
         top:0;
-        background: green;
         width: 100%;
         height: 100%;
         overflow-y: scroll;
@@ -16,8 +15,8 @@
     }
 </style>
 <script>
-    import searchHeader from 'search-header'
-    import searchList from 'saerch-list'
+    import searchHeader from './searchPage/search-header'
+    import searchList from './searchPage/search-list'
     export default{
         data(){
             return{
@@ -25,7 +24,8 @@
             }
         },
         components:{
-            
+            searchHeader,
+            searchList
         }
     }
 </script>
