@@ -6,13 +6,13 @@
                       :isBorder="false"
                       :playlists="hotPlaylists"
                       :clamp="true"
-                      :isFixed="scrollT1"
+                      :isFixed="hotSongScroll"
        ></playlist-song>
-       <playlist-song ref="newAlbum" label="新碟上架"
+       <playlist-song label="新碟上架"
                       :isBorder="true"
                       :playlists="newAlbums"
                       :clamp="false"
-                      :isFixed="scrollT2"
+                      :isFixed="newAlbumScroll"
        >
        </playlist-song>
    </div>
@@ -38,8 +38,8 @@
             return{
                 hotPlaylists:[],
                 newAlbums:[],
-                scrollT1:false,
-                scrollT2:false
+                hotSongScroll:false,
+                newAlbumScroll:false
             }
         },
         created(){
@@ -68,9 +68,11 @@
                 if(event.target.scrollTop >= 100){
                     this.getNewAlbum()
                 }
-                this.scrollT1 = event.target.scrollTop>=40 && event.target.scrollTop<80?true:false
-                this.scrollT2 = event.target.scrollTop>=80?true:false
-
+                this.$nextTick(()=>{
+	        		var labelOffsetTop = document.querySelectorAll('.hot-song')
+	        		this.hotSongScroll = event.target.scrollTop>=labelOffsetTop[0].offsetTop?true:false
+               		this.newAlbumScroll = event.target.scrollTop>=labelOffsetTop[1].offsetTop?true:false
+	        	})
             }
         },
         components:{

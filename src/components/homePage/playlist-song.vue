@@ -38,7 +38,7 @@
             align-items: center;
             &.fixed{
                 width: 100%;
-                background: red;
+                background: rgba(222,222,222,.6);
                 position: fixed;
                 top: 2.25rem;
                 z-index: 10000;

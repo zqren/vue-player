@@ -1,7 +1,7 @@
 <template>
     <div class="search-header">
     	<router-link to="/" class="back-home iconfont icon-back-home" tag="div"></router-link>
-    	<input type="text" v-model="searchContent" placeholder="输入歌曲名或歌手名" />
+    	<input type="text" v-model="searchContent" @keyup="changeShow(searchContent)" @keydown.enter="getSearch" placeholder="输入歌曲名或歌手名" />
     </div>
 </template>
 <style lang="less" scoped>
@@ -40,8 +40,23 @@
     export default{
         data(){
             return{
-				searchContent:''            
+				searchContent:'',
+				arr:[]
             }
-        }        
+        },
+        methods:{
+        	changeShow(val){
+        		this.$emit('changeShow',val)
+        	},
+        	getSearch(){
+        		if(localStorage.getItem('histories')){
+        			this.arr = localStorage.getItem('histories').split(',')
+        		}
+        		this.arr.push(this.searchContent)
+        		localStorage.setItem('histories',this.arr)
+        		this.searchContent = ''
+        		this.$router.push({name:'search'})
+        	}
+        }
     }
 </script>

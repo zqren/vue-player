@@ -1,6 +1,6 @@
 <template>
    <div class="search">
-   		<search-header></search-header>
+   		<search-header @changeShow="changeShow"></search-header>
    		<search-history :historyShow="historyShow"></search-history>
    		<search-list :listShow="!historyShow"></search-list>
    </div>
@@ -18,16 +18,28 @@
 <script>
     import searchHeader from './searchPage/search-header'
     import searchList from './searchPage/search-list'
-    import searchHistoty from './searchPage/search-history'
+    import searchHistory from './searchPage/search-history'
+    
     export default{
         data(){
             return{
                historyShow:true
             }
         },
+        created(){
+        	this.getLocal()
+        },
+        methods:{
+        	changeShow(val){
+        		this.historyShow = val?false:true
+        	},
+        	getLocal(){
+        		localStorage.removeItem('arr')
+        	}
+        },
         components:{
             searchHeader,
-            searchHistoty,
+            searchHistory,
             searchList
         }
     }
