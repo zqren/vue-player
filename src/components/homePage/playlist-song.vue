@@ -4,6 +4,7 @@
         <div class="hot-playlist-label" :class="{topBorder:isBorder,fixed:isFixed}">
             <span class="playlist">{{label}}</span>
             <span class="arrow"></span>
+            // 测试
         </div>
         <!--歌单列表-->
         <div class="hot-playlist-detail">
