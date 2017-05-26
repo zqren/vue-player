@@ -1,3 +1,10 @@
+/*
+ * @Author: mikey.zhaopeng 
+ * @Date: 2017-05-24 20:00:24 
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-05-24 21:24:26
+ */
+
 <template>
    <div class="home" @scroll="getScrollHeight">
        <banner></banner>
