@@ -1,8 +1,10 @@
 <template>
    <div class="search">
-   		<search-header @changeShow="changeShow"></search-header>
+   		<search-header @getSearch="getSearch"></search-header>
    		<search-history :historyShow="historyShow"></search-history>
-   		<search-list :listShow="!historyShow"></search-list>
+   		<search-list :listShow="!historyShow" 
+                            :searchRels="searchRels"
+        ></search-list>
    </div>
 </template>
 <style rel="stylesheet/less" lang="less" scoped>
@@ -23,19 +25,21 @@
     export default{
         data(){
             return{
-               historyShow:true
+               historyShow:true,
+               searchRels:[]
             }
         },
         created(){
         	this.getLocal()
         },
         methods:{
-        	changeShow(val){
-        		this.historyShow = val?false:true
-        	},
         	getLocal(){
         		localStorage.removeItem('arr')
-        	}
+        	},
+            getSearch(data){
+                this.historyShow = false
+                this.searchRels = data
+            }
         },
         components:{
             searchHeader,

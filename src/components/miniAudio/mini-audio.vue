@@ -1,7 +1,7 @@
 <template>
     <div class="my-audio">
       <div class="song-avar">
-        <img src="../../assets/logo.png">
+        <img :src="picUrl">
       </div>
       <div class="song-box">
         <div class="song-time">
@@ -9,8 +9,8 @@
         </div>
         <div class="song-info">
             <div class="song-author">
-                <span class="song-name">{{totalTime}}</span>
-                <span class="song-author">2222</span>
+                <span class="song-name">{{mp3Name}}</span>
+                <span class="song-author">{{mp3Author}}</span>
             </div>
             <div class="song-btn">
                 <span class="iconfont icon-music-list"></span>
@@ -32,6 +32,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
+        z-index: 99999;
         .song-avar{
             flex-basis: 2.3rem;
             height: 100%;
@@ -98,7 +99,8 @@
     }
 </style>
 <script>
-    import {mapGetters} from 'vuex'
+    import { mapGetters } from 'vuex'
+
     export default{
         data(){
             return{
@@ -107,7 +109,7 @@
             }
         },
         computed:{
-           ...mapGetters(['currentTime','totalTime','endS'])
+           ...mapGetters(['currentTime','totalTime','endS','mp3Name','mp3Author','picUrl'])
         },
         methods:{
             playMusic(event){

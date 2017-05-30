@@ -1,7 +1,10 @@
 <template>
     <div class="search-header">
     	<router-link to="/" class="back-home iconfont icon-back-home" tag="div"></router-link>
-    	<input type="text" v-model="searchContent" @keyup="changeShow(searchContent)" @keydown.enter="getSearch" placeholder="输入歌曲名或歌手名" />
+    	<input type="text" v-model="searchContent" 
+					@keydown.enter="getSearch"
+					placeholder="输入歌曲名或歌手名" 
+		/>
     </div>
 </template>
 <style lang="less" scoped>
@@ -41,21 +44,27 @@
         data(){
             return{
 				searchContent:'',
-				arr:[]
+				arr:[],
+				searchResults:[]
             }
         },
         methods:{
-        	changeShow(val){
-        		this.$emit('changeShow',val)
-        	},
         	getSearch(){
         		if(localStorage.getItem('histories')){
         			this.arr = localStorage.getItem('histories').split(',')
         		}
         		this.arr.push(this.searchContent)
         		localStorage.setItem('histories',this.arr)
-        		this.searchContent = ''
-        		this.$router.push({name:'search'})
+				this.searchContent = ''
+
+				this.$http.get(`${window.HOST}/search?name=周杰伦&limit=10`)
+				.then((res)=>{
+					this.$set(this.$data,'searchResults',JSON.parse(res.data).result.songs)
+					this.$emit('getSearch',this.searchResults)
+				})
+				.catch((error)=>{
+					console.log(error)
+				})
         	}
         }
     }

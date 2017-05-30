@@ -9,7 +9,8 @@
 		</div>
 		<div class="history-content">
 			<div class="no-history" v-if="historyArr.length == 0">
-				暂无历史纪录
+					<span>暂无历史纪录</span>
+					<span class="iconfont icon-home"></span>
 			</div>
 			<ul v-if="historyArr.length !=0" class="history-ul">
 				<li v-for="list in historyArr" class="history-list">
@@ -52,10 +53,17 @@
 			margin-top: 0.25rem;
 			.no-history{
 				width: 100%;
-				margin: 1rem auto;
+				margin:3rem auto;
 				color: #999999;
-				font-size: 0.6rem;
+				font-size: .8rem;
 				text-align: center;
+				span{
+					display: block;
+					margin-bottom: 0.25rem;
+					&.iconfont{
+						font-size: 2rem;
+					}
+				}
 			}
 			.history-ul {
 				width: 100%;
@@ -107,7 +115,7 @@
 		methods: {
 			clearAll(){
 				localStorage.removeItem('histories')
-				this.$router.push({name:"search"})
+				this.historyArr = []
 			}
 		}
 	}
