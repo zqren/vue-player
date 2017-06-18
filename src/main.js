@@ -44,3 +44,14 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+router.beforeEach((to, from, next) => {
+    store.dispatch('getLoadStatus',true)
+    next()
+})
+
+router.afterEach( route => {
+  //these hooks do not get a next function and cannot affect the navigation
+  store.dispatch('getLoadStatus',false)
+   //store.state.isLoading = false
+})

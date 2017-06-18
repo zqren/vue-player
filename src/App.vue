@@ -9,6 +9,7 @@
            @timeupdate="setCurrentTime($event)"
            @error = "displayError">
     </audio>
+    <load-com :loadShow="loadStatus"></load-com> 
     <router-view class="router-view"></router-view>
     <mini-audio></mini-audio>
   </div>
@@ -28,6 +29,7 @@
   import headerComp from './components/header-comp'
   import homeComp from './components/home-comp'
   import miniAudio from './components/miniAudio/mini-audio'
+  import loadCom from './components/common/loading'
 
   export default {
     name: 'app',
@@ -37,7 +39,7 @@
       }
     },
     computed:{
-        ...mapGetters(['mp3Url'])
+        ...mapGetters(['loadStatus','mp3Url'])
     },
     methods:{
       ...mapActions(['setCurrentTime','getTotalTime','endPlay']),
@@ -52,7 +54,8 @@
     components:{
       headerComp,
       homeComp,
-      miniAudio
+      miniAudio,
+      loadCom
     }
   }
 </script>

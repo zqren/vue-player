@@ -8,3 +8,5 @@ export const PAUSE_PLAY = 'PAUSE_PLAY'
 export const END_PLAY = 'END_PLAY'
 export const GET_ALBUM_PIC = 'GET_ALBUM_PIC'
 
+export const GET_LOAD_STATUS = 'GET_LOAD_STATUS'
+
